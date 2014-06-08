@@ -1,0 +1,12 @@
+parameters:
+  name: Gonzalo
+
+services:
+  App:
+    class:     App
+    arguments: [@Proxy, %name%]
+  Proxy:
+    class:     Proxy
+    arguments: [@Curl]
+  Curl:
+    class:     Curl

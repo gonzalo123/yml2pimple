@@ -1,0 +1,29 @@
+{
+    "name": "gonzalo123/yaml2pimple",
+    "keywords": ["pimple", "dependency injection", "container"],
+    "license":"GPL",
+    "authors": [
+        {
+            "name": "Gonzalo Ayuso",
+            "email": "gonzalo123@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "G\\Yaml2Pimple": "src/"
+        }
+    },
+    "require": {
+        "pimple/pimple": "2.1.*@dev",
+        "symfony/config": "2.6.*@dev",
+        "symfony/yaml": "2.6.*@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.3.*@dev",
+        "phpunit/php-code-coverage": "3.0.*@dev",
+        "phpunit/phpunit-mock-objects": "2.3.*@dev"
+    },
+    "config": {
+        "bin-dir": "bin/"
+    }
+}
