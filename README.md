@@ -1,7 +1,7 @@
 Pimple/Container builder
 ======
 [![Build Status](https://travis-ci.org/gonzalo123/yml2pimple.svg?branch=master)](https://travis-ci.org/gonzalo123/yml2pimple)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/ba549cfa-e3c6-4056-a6f8-bac23fac473a/big.png)](https://insight.sensiolabs.com/projects/ba549cfa-e3c6-4056-a6f8-bac23fac473a)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/ba549cfa-e3c6-4056-a6f8-bac23fac473a/mini.png)](https://insight.sensiolabs.com/projects/ba549cfa-e3c6-4056-a6f8-bac23fac473a)
 
 Simple tool build pimple containers from a configuration file
 
