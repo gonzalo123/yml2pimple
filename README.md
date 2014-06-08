@@ -60,5 +60,3 @@ $loader->load('services.yml');
 $app = $container['App'];
 echo $app->hello();
 ```
-
-
