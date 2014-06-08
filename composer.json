@@ -1,7 +1,8 @@
 {
     "name": "gonzalo123/yaml2pimple",
     "keywords": ["pimple", "dependency injection", "container"],
-    "license":"GPL",
+    "description": "Build a Pimple/Container from a config file",
+    "license":"MIT",
     "authors": [
         {
             "name": "Gonzalo Ayuso",
