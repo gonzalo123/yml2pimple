@@ -20,6 +20,9 @@ $container['Proxy'] = function ($c) {
 $container['App'] = function ($c) {
     return new App($c['Proxy'], $c['name']);
 };
+
+$app = $container['App'];
+echo $app->hello();
 ```
 
 We define the dependecies with code. But we want to define dependecies using a yml file for example:
