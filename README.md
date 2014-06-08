@@ -1,5 +1,7 @@
 Pimple/Container builder
 ======
+[![Build Status](https://travis-ci.org/gonzalo123/yml2pimple.svg?branch=master)](https://travis-ci.org/gonzalo123/yml2pimple)
+
 Simple tool build pimple containers from a configuration file
 
 Imagine this simple application:
