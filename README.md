@@ -29,7 +29,7 @@ $app = $container['App'];
 echo $app->hello();
 ```
 
-We define the dependecies with code. But we want to define dependecies using a yml file for example:
+We define the dependencies with code. But we want to define dependencies using a yml file for example:
 
 ```
 parameters:
