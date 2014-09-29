@@ -23,9 +23,3 @@ $container['App'] = function ($c) {
 
 $app = $container['App'];
 echo $app->hello();
-
-
-
-
-
-
