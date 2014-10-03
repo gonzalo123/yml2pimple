@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "G\\Yaml2Pimple\\": "src/G/Yaml2Pimple"
+            "G\\Yaml2Pimple\\": "src/"
         }
     },
     "require": {
