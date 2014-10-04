@@ -133,4 +133,3 @@ class YamlFileLoader extends Loader
         return $value;
     }
 }
-
