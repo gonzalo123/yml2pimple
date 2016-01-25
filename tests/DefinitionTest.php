@@ -12,5 +12,9 @@ class DefinitionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('Foo', $definition->getClass());
         $this->assertEquals([1, 2, 3], $definition->getArguments());
+        $this->assertEquals(false, $definition->isFactory());
+
+        $definition->setFactory(true);
+        $this->assertEquals(true, $definition->isFactory());
     }
 }

@@ -19,17 +19,25 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
             $this->assertArrayHasKey('App', $conf['services']);
             $this->assertArrayHasKey('Curl', $conf['services']);
             $this->assertArrayHasKey('Proxy', $conf['services']);
+            $this->assertArrayHasKey('Factory', $conf['services']);
 
             $this->assertInstanceOf('G\Yaml2Pimple\Definition', $conf['services']['App']);
             $this->assertInstanceOf('G\Yaml2Pimple\Definition', $conf['services']['Curl']);
             $this->assertInstanceOf('G\Yaml2Pimple\Definition', $conf['services']['Proxy']);
+            $this->assertInstanceOf('G\Yaml2Pimple\Definition', $conf['services']['Factory']);
 
             $this->assertEquals('App', $conf['services']['App']->getClass());
             $this->assertEquals(['@Proxy', '%name%'], $conf['services']['App']->getArguments());
+            $this->assertEquals(false, $conf['services']['App']->isFactory());
             $this->assertEquals('Curl', $conf['services']['Curl']->getClass());
             $this->assertEquals(null, $conf['services']['Curl']->getArguments());
+            $this->assertEquals(false, $conf['services']['Curl']->isFactory());
             $this->assertEquals('Proxy', $conf['services']['Proxy']->getClass());
             $this->assertEquals(['@Curl'], $conf['services']['Proxy']->getArguments());
+            $this->assertEquals(false, $conf['services']['Proxy']->isFactory());
+            $this->assertEquals('Factory', $conf['services']['Factory']->getClass());
+            $this->assertEquals(['@Curl'], $conf['services']['Factory']->getArguments());
+            $this->assertEquals(true, $conf['services']['Factory']->isFactory());
         });
 
         $locator = $this->getMockBuilder('Symfony\Component\Config\FileLocatorInterface')->disableOriginalConstructor()->getMock();

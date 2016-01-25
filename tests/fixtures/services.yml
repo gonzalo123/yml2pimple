@@ -10,3 +10,7 @@ services:
     arguments: [@Curl]
   Curl:
     class:     Curl
+  Factory:
+    class:     Factory
+    arguments: [@Curl]
+    factory:   true

@@ -20,7 +20,7 @@ class ContainerBuilder
         }
 
         foreach ($conf['services'] as $serviceName => $serviceConf) {
-            $this->container[$serviceName] = function () use ($serviceConf) {
+            $serviceCallback = function () use ($serviceConf) {
                 $class  = new \ReflectionClass($serviceConf->getClass());
                 $params = [];
                 foreach ((array)$serviceConf->getArguments() as $argument) {
@@ -29,6 +29,13 @@ class ContainerBuilder
 
                 return $class->newInstanceArgs($params);
             };
+
+            if ($serviceConf->isFactory()) {
+                $this->container[$serviceName] = $this->container->factory($serviceCallback);
+            } else {
+                $this->container[$serviceName] = $serviceCallback;
+            }
+
         }
     }
 
