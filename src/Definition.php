@@ -8,6 +8,8 @@ class Definition
 
     protected $arguments;
 
+    protected $factory = false;
+
     public function setClass($class)
     {
         $this->class = $class;
@@ -30,5 +32,17 @@ class Definition
     public function getArguments()
     {
         return $this->arguments;
+    }
+
+    public function setFactory($factory)
+    {
+        $this->factory = (bool) $factory;
+
+        return $this;
+    }
+
+    public function isFactory()
+    {
+        return $this->factory;
     }
 }

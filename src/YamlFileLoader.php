@@ -125,6 +125,10 @@ class YamlFileLoader extends Loader
             $definition->setArguments($this->resolveServices($service['arguments']));
         }
 
+        if (isset($service['factory'])) {
+            $definition->setFactory($service['factory']);
+        }
+
         $this->container['services'][$id] = $definition;
     }
 
