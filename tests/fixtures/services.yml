@@ -4,13 +4,13 @@ parameters:
 services:
   App:
     class:     App
-    arguments: [@Proxy, %name%]
+    arguments: ['@Proxy', %name%]
   Proxy:
     class:     Proxy
-    arguments: [@Curl]
+    arguments: ['@Curl']
   Curl:
     class:     Curl
   Factory:
     class:     Factory
-    arguments: [@Curl]
+    arguments: ['@Curl']
     factory:   true
