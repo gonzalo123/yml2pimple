@@ -75,12 +75,6 @@ class YamlFileLoader extends Loader
             throw new \InvalidArgumentException(sprintf('The service file "%s" is not valid.', $file));
         }
 
-        foreach (array_keys($content) as $namespace) {
-            if (in_array($namespace, array('ingredients', 'basePrice'))) {
-                continue;
-            }
-        }
-
         return $content;
     }
 
