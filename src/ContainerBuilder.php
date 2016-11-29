@@ -15,28 +15,33 @@ class ContainerBuilder
 
     public function buildFromArray($conf)
     {
-        foreach ($conf['parameters'] as $parameterName => $parameterValue) {
+        if (array_key_exists('parameters',$conf)){
+          foreach ($conf['parameters'] as $parameterName => $parameterValue) {
             $this->container[$parameterName] = $parameterValue;
+          }
         }
 
-        foreach ($conf['services'] as $serviceName => $serviceConf) {
+        if (array_key_exists('services',$conf)){
+          foreach ($conf['services'] as $serviceName => $serviceConf) {
             $serviceCallback = function () use ($serviceConf) {
-                $class  = new \ReflectionClass($serviceConf->getClass());
-                $params = [];
-                foreach ((array)$serviceConf->getArguments() as $argument) {
-                    $params[] = $this->decodeArgument($argument);
-                }
+              $class  = new \ReflectionClass($serviceConf->getClass());
+              $params = [];
+              foreach ((array)$serviceConf->getArguments() as $argument) {
+                $params[] = $this->decodeArgument($argument);
+              }
 
-                return $class->newInstanceArgs($params);
+              return $class->newInstanceArgs($params);
             };
 
             if ($serviceConf->isFactory()) {
-                $this->container[$serviceName] = $this->container->factory($serviceCallback);
+              $this->container[$serviceName] = $this->container->factory($serviceCallback);
             } else {
-                $this->container[$serviceName] = $serviceCallback;
+              $this->container[$serviceName] = $serviceCallback;
             }
 
+          }
         }
+
     }
 
     private function decodeArgument($value)
