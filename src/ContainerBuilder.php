@@ -46,14 +46,21 @@ class ContainerBuilder
 
     private function decodeArgument($value)
     {
+
+        $output = $value;
+
         if (is_string($value)) {
             if (0 === strpos($value, '@')) {
-                $value = $this->container[substr($value, 1)];
+                $output = $this->container[substr($value, 1)];
             } elseif (0 === strpos($value, '%')) {
-                $value = $this->container[substr($value, 1, -1)];
+                $output = $this->container[substr($value, 1, -1)];
+            }
+        } else if ( is_array($value) ) {
+            foreach ( $value as $k => $v ) {
+                $output[$this->decodeArgument($k)] = $this->decodeArgument($v);
             }
         }
 
-        return $value;
+        return $output;
     }
 }
